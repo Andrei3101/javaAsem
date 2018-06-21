@@ -7,11 +7,11 @@ public class League {
     public static void main(String[] args) {
 
         System.out.println("League Started  ! ");
-        Team home = new Team("HOME TEAM");
-        Team away = new Team("AWAY TEAM");
+        Team home = new Team("LIVERPOOL");
+        Team away = new Team("REAL MADRID");
 
-        home.playerList.add(new Player("Virgil") );
         home.playerList.add(new Player("Karius") );
+        home.playerList.add(new Player("Virgil") );
         home.playerList.add(new Player("Lovren") );
         home.playerList.add(new Player("Mane") );
         home.playerList.add(new Player("Firmino") );
@@ -32,8 +32,8 @@ public class League {
 
         List<Goal> gList = new ArrayList<>();
         for (int i =0; i < nr.nextInt(10) ; i++) {
-            if (i % 2 ==0 ) gList.add(new Goal(home, home.playerList.get( rmPlayer.nextInt(6) ), nr.nextInt(90)));
-            else gList.add(new Goal(away, away.playerList.get( rmPlayer.nextInt(6) ), nr.nextInt(90)));
+            if (nr.nextInt(2) % 2 < 1 ) gList.add(new Goal(home, home.playerList.get( rmPlayer.nextInt(5)+1 ), nr.nextInt(90)));
+            else gList.add(new Goal(away, away.playerList.get( rmPlayer.nextInt(5)+1 ), nr.nextInt(90)));
         }
 
         new Game(home, away, gList);
@@ -49,7 +49,7 @@ public class League {
 
         }
 
-        System.out.println("Final Score: HOME TEAM "+ homeCount + " : " + awayCount + " AWAY TEAM " );
+        System.out.println("Final Score: LIVERPOOL "+ homeCount + " : " + awayCount + " REAL MADRID " );
 
     }
 }
